@@ -25,6 +25,13 @@ class ProductManager:
             total += product
         print(f"Total price: {total}")
 
+    def save_products_to_file(self):
+        filename = input("Enter the name of the file: ")
+        with open(filename, "w") as file:
+            for name, price in self.products.items():
+                file.write(f"{name} - {price}\n")
+        print(f"Products saved successfully to {filename}")
+
 
 
 product_manager = ProductManager()
@@ -64,6 +71,12 @@ while True:
 
     elif choice == "5":
         print(product_manager.products)
+
+    elif choice == "6":
+        product_manager.save_products_to_file()
+
+
+
 
 
 
