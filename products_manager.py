@@ -18,6 +18,11 @@ def delete_product():
     del products[name]
     print(f"{name} was deleted successfully from the list")
 
+def total_price():
+    total = 0
+    for product in products.values():
+        total += product
+    print(f"Total price: {total}")
 
 
 while True:
@@ -38,6 +43,9 @@ while True:
 
     elif choice == "3":
         delete_product()
+
+    elif choice == "4":
+        total_price()
 
 
     elif choice == "6":
