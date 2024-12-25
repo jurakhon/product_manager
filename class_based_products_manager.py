@@ -61,17 +61,42 @@ while True:
     choice = input("Enter your choice: ")
     if choice == "1":
         name = input("Enter the name of the product: ")
-        price = int(input("Enter the price of the product: "))
-        product_manager.add_product(name, price)
-        print(f"Product {name} added successfully")
-        print(product_manager.products)
+        try:
+            price = int(input("Enter the price of the product: "))
+            if price < 0:
+                raise ValueError
+            elif price is None:
+                raise ValueError
+            elif price == float(price):
+                price = int(price)
+            product_manager.add_product(name, price)
+            print(f"Product {name} added successfully")
+            print(product_manager.products)
+
+        except ValueError:
+            print("Enter Integer price. No Negative number, No Float or String.")
 
     elif choice == "2":
         name = input("Enter the name of the product: ")
-        price = int(input("Enter the new price of the product: "))
-        product_manager.update_price(name, price)
-        print(f"Price of {name} updated successfully")
-        print(product_manager.products)
+        try:
+            if name not in product_manager.products:
+                print("Product not found")
+
+            else:
+                price = int(input("Enter the new price of the product: "))
+                if price < 0:
+                    raise ValueError
+                elif price is None:
+                    raise ValueError
+                elif price == float(price):
+                    price = int(price)
+                product_manager.update_price(name, price)
+                print(f"Price of {name} updated successfully")
+                print(product_manager.products)
+
+        except ValueError:
+            print("Enter Integer price. No Negative number, No Float or String.")
+
 
     elif choice == "3":
         name = input("Enter the name of the product to delete: ")
