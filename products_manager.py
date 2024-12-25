@@ -7,7 +7,11 @@ def add_product():
     print(f"Product {name} added successfully")
 
 
-
+def update_price():
+    name = input("Enter the name of the product: ")
+    price = int(input("Enter the new price of the product: "))
+    products[name] = price
+    print(f"Price of {name} updated successfully")
 
 
 while True:
@@ -22,6 +26,10 @@ while True:
     choice = input("Enter your choice: ")
     if choice == "1":
         add_product()
+
+    elif choice == "2":
+        update_price()
+
 
     elif choice == "5":
         print(products)
