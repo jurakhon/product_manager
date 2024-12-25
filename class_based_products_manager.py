@@ -62,6 +62,11 @@ while True:
     elif choice == "4":
         product_manager.total_price()
 
+    elif choice == "5":
+        print(product_manager.products)
+
+
+
 
 
 
