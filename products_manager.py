@@ -1,3 +1,5 @@
+from fileinput import filename
+
 products = {}
 
 def add_product():
@@ -24,6 +26,13 @@ def total_price():
         total += product
     print(f"Total price: {total}")
 
+def save_products_to_file():
+    filename = input("Enter the name of the file to save the products: ")
+    with open(filename, "w") as file:
+        for name, price in products.items():
+            file.write(f"{name} - {price}\n")
+    print(f"Products saved successfully to {filename}")
+
 
 while True:
     print("Welcome to my products manager")
@@ -31,8 +40,8 @@ while True:
     print("2. Update price")
     print("3. Delete a product")
     print("4. Total price")
-    print("5. Save products to a file")
-    print("6. Print current list")
+    print("5. Print current list")
+    print("6. Save products to a file")
     print("7. Exit")
     choice = input("Enter your choice: ")
     if choice == "1":
@@ -47,7 +56,8 @@ while True:
     elif choice == "4":
         total_price()
 
-
-    elif choice == "6":
+    elif choice == "5":
         print(products)
 
+    elif choice == "6":
+        save_products_to_file()

@@ -1,0 +1,3 @@
+tomato - 20
+cucumber - 15
+peaches - 27
