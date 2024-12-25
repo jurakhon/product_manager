@@ -3,9 +3,19 @@ products = {}
 
 def add_product():
     name = input("Enter the name of the product: ")
-    price = int(input("Enter the price of the product: "))
-    products[name] = price
-    print(f"Product {name} added successfully")
+    try:
+        price = int(input("Enter the price of the product: "))
+        if price < 0:
+            raise ValueError
+        elif price is None:
+            raise ValueError
+        elif price == float(price):
+            price = int(price)
+        products[name] = price
+        print(f"Product {name} added successfully")
+
+    except ValueError:
+        print("Enter Integer price. No Negative number, No Float or String.")
 
 
 def update_price():
