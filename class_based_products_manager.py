@@ -27,3 +27,9 @@ while True:
     print("7. Load products from a file")
     print("8. Exit")
     choice = input("Enter your choice: ")
+    if choice == "1":
+        name = input("Enter the name of the product: ")
+        price = int(input("Enter the price of the product: "))
+        product_manager.add_product(name, price)
+        print(f"Product {name} added successfully")
+        print(product_manager.products)
