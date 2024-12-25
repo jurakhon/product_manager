@@ -61,13 +61,21 @@ def save_products_to_file():
             file.write(f"{name} - {price}\n")
     print(f"Products saved successfully to {filename}")
 
+
 def load_products_from_file():
-    filename = input("Enter the name of the file to load: ")
-    with open(filename, "r") as file:
-        for line in file:
-            name, price = line.strip().split("-")
-            products[name.strip()] = int(price.strip())
-    print(f"Products loaded successfully from {filename}")
+    try:
+        filename = input("Enter the name of the file to load: ")
+        with open(filename, "r") as file:
+            for line in file:
+                if '-' not in line:
+                    continue
+                name, price = line.strip().split("-")
+                products[name.strip()] = int(price.strip())
+        print(f"Products loaded successfully from {filename}")
+    except FileNotFoundError:
+        print(f"File {filename} not found.")
+
+
 
 
 while True:
