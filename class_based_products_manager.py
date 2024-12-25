@@ -32,7 +32,19 @@ class ProductManager:
                 file.write(f"{name} - {price}\n")
         print(f"Products saved successfully to {filename}")
 
+    def load_products_from_file(self):
+        try:
+            filename = input("Enter the name of the file: ")
+            with open(filename, "r") as file:
+                for line in file:
+                    if '-' not in line:
+                        continue
+                    name, price = line.strip().split("-")
+                    self.products[name.strip()] = int(price.strip())
+            print(f"Products loaded successfully from {filename}")
 
+        except FileNotFoundError:
+            print(f"File {filename} not found.")
 
 product_manager = ProductManager()
 
@@ -75,7 +87,8 @@ while True:
     elif choice == "6":
         product_manager.save_products_to_file()
 
-
+    elif choice == "7":
+        product_manager.load_products_from_file()
 
 
 
