@@ -79,35 +79,40 @@ def load_products_from_file():
 
 
 while True:
-    print("1. Add a product")
-    print("2. Update price")
-    print("3. Delete a product")
-    print("4. Total price")
-    print("5. Print current list")
-    print("6. Save products to a file")
-    print("7. Load products from a file")
-    print("8. Exit")
-    choice = input("Enter your choice: ")
-    if choice == "1":
-        add_product()
+    try:
+        print("1. Add a product")
+        print("2. Update price")
+        print("3. Delete a product")
+        print("4. Total price")
+        print("5. Print current list")
+        print("6. Save products to a file")
+        print("7. Load products from a file")
+        print("8. Exit")
+        choice = input("Enter your choice: ")
+        if choice == "1":
+            add_product()
 
-    elif choice == "2":
-        update_price()
+        elif choice == "2":
+            update_price()
 
-    elif choice == "3":
-        delete_product()
+        elif choice == "3":
+            delete_product()
 
-    elif choice == "4":
-        total_price()
+        elif choice == "4":
+            total_price()
 
-    elif choice == "5":
-        print(products)
+        elif choice == "5":
+            print(products)
 
-    elif choice == "6":
-        save_products_to_file()
+        elif choice == "6":
+            save_products_to_file()
 
-    elif choice == "7":
-        load_products_from_file()
+        elif choice == "7":
+            load_products_from_file()
 
-    elif choice == "8":
-        break
+        elif choice == "8":
+            print("Exiting. Good Bye!")
+            break
+    except ValueError:
+        print("Please enter a valid choice.")
+
