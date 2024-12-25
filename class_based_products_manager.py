@@ -90,6 +90,10 @@ while True:
     elif choice == "7":
         product_manager.load_products_from_file()
 
+    elif choice == "8":
+        print("Good Bye!")
+        break
+
 
 
 
