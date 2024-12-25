@@ -19,6 +19,12 @@ class ProductManager:
     def delete_product(self, name):
         del self.products[name]
 
+    def total_price(self):
+        total = 0
+        for product in self.products.values():
+            total += product
+        print(f"Total price: {total}")
+
 
 
 product_manager = ProductManager()
@@ -52,6 +58,11 @@ while True:
         name = input("Enter the name of the product to delete: ")
         product_manager.delete_product(name)
         print(f"{name} was deleted successfully from the list")
+
+    elif choice == "4":
+        product_manager.total_price()
+
+
 
 
 
