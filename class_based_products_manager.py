@@ -13,6 +13,10 @@ class ProductManager:
     def add_product(self, name, price):
         self.products[name] = price
 
+    def update_price(self, name, price):
+        self.products[name] = price
+
+
 
 product_manager = ProductManager()
 
@@ -33,3 +37,13 @@ while True:
         product_manager.add_product(name, price)
         print(f"Product {name} added successfully")
         print(product_manager.products)
+
+    elif choice == "2":
+        name = input("Enter the name of the product: ")
+        price = int(input("Enter the new price of the product: "))
+        product_manager.update_price(name, price)
+        print(f"Price of {name} updated successfully")
+        print(product_manager.products)
+
+
+
