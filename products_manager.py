@@ -32,16 +32,24 @@ def save_products_to_file():
             file.write(f"{name} - {price}\n")
     print(f"Products saved successfully to {filename}")
 
+def load_products_from_file():
+    filename = input("Enter the name of the file to load: ")
+    with open(filename, "r") as file:
+        for line in file:
+            name, price = line.strip().split("-")
+            products[name.strip()] = int(price.strip())
+    print(f"Products loaded successfully from {filename}")
+
 
 while True:
-    print("Welcome to my products manager")
     print("1. Add a product")
     print("2. Update price")
     print("3. Delete a product")
     print("4. Total price")
     print("5. Print current list")
     print("6. Save products to a file")
-    print("7. Exit")
+    print("7. Load products from a file")
+    print("8. Exit")
     choice = input("Enter your choice: ")
     if choice == "1":
         add_product()
@@ -62,4 +70,7 @@ while True:
         save_products_to_file()
 
     elif choice == "7":
+        load_products_from_file()
+
+    elif choice == "8":
         break
