@@ -61,3 +61,6 @@ while True:
 
     elif choice == "6":
         save_products_to_file()
+
+    elif choice == "7":
+        break
