@@ -20,12 +20,31 @@ def add_product():
 
 def update_price():
     name = input("Enter the name of the product: ")
-    price = int(input("Enter the new price of the product: "))
-    products[name] = price
-    print(f"Price of {name} updated successfully")
+    if name not in products:
+        print("Product not found")
+        return
+
+    try:
+        price = int(input("Enter the new price of the product: "))
+        if price < 0:
+            raise ValueError
+        elif price is None:
+            raise ValueError
+        elif price == float(price):
+            price = int(price)
+        products[name] = price
+        print(f"Price of {name} updated successfully")
+    except ValueError:
+        print("Enter Integer price. No Negative number, No Float or String.")
+
 
 def delete_product():
     name = input("Enter the name of the product to delete: ")
+    if name not in products:
+        print("Product not found")
+        return
+    else:
+        print(f"Price of {name} is {products[name]}")
     del products[name]
     print(f"{name} was deleted successfully from the list")
 
