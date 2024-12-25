@@ -16,6 +16,9 @@ class ProductManager:
     def update_price(self, name, price):
         self.products[name] = price
 
+    def delete_product(self, name):
+        del self.products[name]
+
 
 
 product_manager = ProductManager()
@@ -44,6 +47,12 @@ while True:
         product_manager.update_price(name, price)
         print(f"Price of {name} updated successfully")
         print(product_manager.products)
+
+    elif choice == "3":
+        name = input("Enter the name of the product to delete: ")
+        product_manager.delete_product(name)
+        print(f"{name} was deleted successfully from the list")
+
 
 
 
